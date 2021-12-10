@@ -1,5 +1,5 @@
 {% set name = "django-cognito-jwt" %}
-{% set version = "0.0.3" %}
+{% set version = "0.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6e9dfb79b262c338a493b71f81811621f88fb0af88d4b86e896252a9c00c81bf
+  sha256: 567418f170dc15f690a66cf3a7a934aed4f08f22bbb3090c99e15c6966198552
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -36,7 +36,7 @@ about:
   license_family: MIT
   # https://github.com/labd/django-cognito-jwt/issues/31
   license_file: LICENSE
-  summary: 'An Authentication backend for Django Rest Framework for AWS Cognito JWT tokens'
+  summary: An Authentication backend for Django Rest Framework for AWS Cognito JWT tokens
 
 extra:
   recipe-maintainers:
