@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 567418f170dc15f690a66cf3a7a934aed4f08f22bbb3090c99e15c6966198552
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - django >=1.11
     - cryptography
     - djangorestframework
@@ -27,6 +27,8 @@ requirements:
     - requests
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - django_cognito_jwt
 
